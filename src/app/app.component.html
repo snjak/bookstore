@@ -1,0 +1,21 @@
+<p-toast></p-toast>
+<ng-container *ngIf="authenticatedUser$ | async as user">
+  <p-sidebar [(visible)]="sidebarVisible" class="flex flex-column">
+    <div
+      class="sidebar-item w-full h-2rem flex align-items-center"
+      routerLink="/bookstore">
+      Bookstore
+    </div>
+    <div
+      class="sidebar-item w-full h-2rem flex align-items-center"
+      *ngIf="user.role === 'admin'"
+      routerLink="/admin">
+      Admin
+    </div>
+  </p-sidebar>
+  <p-button
+    (click)="sidebarVisible = true"
+    icon="pi pi-align-justify"
+    class="p-mt-2"></p-button>
+</ng-container>
+<router-outlet />

@@ -1,0 +1,49 @@
+<div class="grid">
+  <div class="col-12">
+    <div class="card mt-3">
+      <div class="flex align-items-center justify-content-between mb-3">
+        <h5>Book List</h5>
+        <p-button
+          label="Add Book"
+          icon="pi pi-plus"
+          class="p-button-outlined"
+          (click)="addBook()"></p-button>
+      </div>
+
+      <ng-container *ngIf="books$ | async as books">
+        <p-table [value]="books" class="p-datatable p-datatable-gridlines">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Description</th>
+              <th>Actions</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-book>
+            <tr [pSelectableRow]="book">
+              <td>{{ book.id }}</td>
+              <td>{{ book.title }}</td>
+              <td>{{ book.author }}</td>
+              <td>{{ book.description }}</td>
+              <td class="flex align-items-center">
+                <p-button
+                  label="Edit"
+                  icon="pi pi-pencil"
+                  class="p-button-info mr-2"
+                  (click)="editBook(book)"></p-button>
+                <p-button
+                  label="Delete"
+                  icon="pi pi-trash"
+                  class="p-button-danger"
+                  (click)="deleteBook(book)"></p-button>
+              </td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </ng-container>
+    </div>
+  </div>
+</div>
+<p-toast></p-toast>

@@ -1,0 +1,40 @@
+<form [formGroup]="addBookForm">
+  <div class="p-fluid my-4">
+    <div class="p-field">
+      <span class="p-float-label mb-5">
+        <input type="text" id="title" pInputText formControlName="title" />
+        <label for="username">Title</label>
+      </span>
+    </div>
+    <div class="p-field">
+      <span class="p-float-label mb-5">
+        <input type="text" id="author" pInputText formControlName="author" />
+        <label for="author">Author</label>
+      </span>
+    </div>
+    <div class="p-field">
+      <span class="p-float-label mb-5">
+        <input
+          type="text"
+          id="description"
+          pInputTextarea
+          formControlName="description" />
+        <label for="description">Description</label>
+      </span>
+    </div>
+    <div class="p-field">
+      <span class="p-float-label mb-5">
+        <input
+          type="text"
+          id="coverImage"
+          pInputTextarea
+          formControlName="coverImage" />
+        <label for="coverImage">Cover Image</label>
+      </span>
+    </div>
+    <p-button
+      label="Add Book"
+      [disabled]="!addBookForm.valid"
+      (click)="saveBook()"></p-button>
+  </div>
+</form>

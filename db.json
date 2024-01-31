@@ -1,0 +1,39 @@
+{
+  "books": [
+    {
+      "title": "The Visible Valley",
+      "author": "Stephen Kralj",
+      "description": "An inspiring story set against the backdrop of the deep blue sea, revealing ancient secrets.",
+      "coverImage": "https://picsum.photos/300/400?random=315",
+      "id": "6168"
+    },
+    {
+      "title": "Echoes of Time",
+      "author": "Agatha Christie",
+      "description": "A thrilling tale of mysteries untangling through the sands of time.",
+      "coverImage": "https://picsum.photos/300/400?random=757",
+      "id": "1007"
+    },
+    {
+      "title": "Beyond the Horizon",
+      "author": "Isabel Allende",
+      "description": "An adventurous expedition to the furthest edges of the world, discovering uncharted territories.",
+      "coverImage": "https://picsum.photos/300/400?random=79",
+      "id": "8400"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "admin",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "username": "user",
+      "password": "user",
+      "role": "user"
+    }
+  ]
+}

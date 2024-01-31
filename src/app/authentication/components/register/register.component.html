@@ -1,0 +1,92 @@
+<form [formGroup]="registerForm">
+  <div class="p-fluid my-4">
+    <div class="p-field mb-5">
+      <span class="p-float-label">
+        <input
+          type="text"
+          id="username"
+          pInputText
+          formControlName="username" />
+        <label for="username">Username</label>
+      </span>
+      <div
+        *ngIf="
+          registerForm.get('username')?.invalid &&
+          (registerForm.get('username')?.dirty ||
+            registerForm.get('username')?.touched)
+        ">
+        <small
+          class="p-error"
+          *ngIf="registerForm.get('username')?.errors?.['required']"
+          >Username is required.</small
+        >
+        <small
+          class="p-error"
+          *ngIf="registerForm.get('username')?.errors?.['minlength']"
+          >Username must be at least 4 characters long.</small
+        >
+      </div>
+    </div>
+
+    <div class="p-field mb-5">
+      <span class="p-float-label">
+        <p-password formControlName="password"></p-password>
+        <label for="password">Password</label>
+      </span>
+      <div
+        *ngIf="
+          registerForm.get('password')?.invalid &&
+          (registerForm.get('password')?.dirty ||
+            registerForm.get('password')?.touched)
+        ">
+        <small
+          class="p-error"
+          *ngIf="registerForm.get('password')?.errors?.['required']"
+          >Password is required.</small
+        >
+        <small
+          class="p-error"
+          *ngIf="registerForm.get('password')?.errors?.['minlength']"
+          >Password must be at least 6 characters long.</small
+        >
+      </div>
+    </div>
+
+    <div class="p-field mb-5">
+      <span class="p-float-label">
+        <p-password formControlName="repeatPassword"></p-password>
+        <label for="repeatPassword">Repeat Password</label>
+      </span>
+      <div
+        *ngIf="
+          registerForm.get('repeatPassword')?.invalid &&
+          (registerForm.get('repeatPassword')?.dirty ||
+            registerForm.get('repeatPassword')?.touched)
+        ">
+        <small
+          class="p-error"
+          *ngIf="registerForm.get('repeatPassword')?.errors?.['required']"
+          >Repeat Password is required.</small
+        >
+        <small
+          class="p-error"
+          *ngIf="registerForm.get('repeatPassword')?.errors?.['minlength']"
+          >Repeat Password must be at least 6 characters long.</small
+        >
+      </div>
+      <div
+        *ngIf="
+          registerForm.errors?.['passwordMismatch'] &&
+          (registerForm.get('password')?.touched ||
+            registerForm.get('repeatPassword')?.touched)
+        ">
+        <small class="p-error">Passwords must match.</small>
+      </div>
+    </div>
+
+    <p-button
+      label="Register"
+      [disabled]="!registerForm.valid"
+      (click)="registerUser()"></p-button>
+  </div>
+</form>
